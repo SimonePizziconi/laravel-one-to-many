@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
+use App\Models\Type;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProjectRequest;
@@ -16,6 +17,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects =  Project::orderBy('id', 'desc')->get();
+
         return view('admin.projects.index', compact('projects'));
     }
 

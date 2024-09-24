@@ -14,6 +14,7 @@
                     <th scope="col">Titolo</th>
                     <th scope="col">Descrizione</th>
                     <th scope="col">Data D'inizio</th>
+                    <th scope="col">Tipo Progetto</th>
                     <th scope="col">Azioni</th>
                 </tr>
             </thead>
@@ -24,6 +25,8 @@
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->description }}</td>
                         <td>{{ $project->start_date }}</td>
+                        <td><span class="badge text-bg-info">{{ $project->type?->name }}</span>
+                        </td>
                         <td><a href="{{ route('admin.projects.show', $project) }}" class="btn btn-warning"><i
                                     class="fa-solid fa-eye"></i></a></td>
                         <td><a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary"><i
