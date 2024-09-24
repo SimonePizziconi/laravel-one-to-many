@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Project;
+use App\Models\Type;
 use Faker\Generator as Faker;
 use App\Functions\Helper;
 
@@ -18,6 +19,7 @@ class ProjectSeeder extends Seeder
     {
         for ($i = 0; $i < 50; $i++) {
             $new_project = new Project();
+            $new_project->type_id = Type::inRandomOrder()->first()->id;
             $new_project->title = $faker->word();
             $new_project->description = $faker->paragraph(4);
             $new_project->client = $faker->company();
