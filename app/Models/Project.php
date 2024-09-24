@@ -23,5 +23,6 @@ class Project extends Model
         'end_date',
         'image',
         'project_url',
+        'type_id'
     ];
 }

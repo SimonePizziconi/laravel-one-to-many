@@ -23,6 +23,14 @@
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
+        <label for="type" class="form-label">Tipo</label>
+        <select name="type_id" id="type" class="form-select" aria-label="Default select example">
+            <option selected>Scegli tipo di progetto</option>
+            @foreach ($types as $type)
+                <option value="{{ $type->id }}" {{ old('type_id', $project->type_id) == $type->id ? 'selected' : '' }}>
+                    {{ $type->name }}</option>
+            @endforeach
+        </select>
         <div class="mb-3">
             <label for="client" class="form-label">Cliente</label>
             <input type="text" class="form-control @error('client') is-invalid @enderror" id="client" name="client"
